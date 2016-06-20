@@ -1,6 +1,6 @@
 env:
   global:
-  - secure: g7WTo8ofUjRFP5ce3+8imSm7V6V9jmyNvkPST1m6q8XOcfTTH2ualDS5At3Zk1mHG9x656LKQfC/voeUq7RK17AJ3wtMp6R84kmzF0v3Y0hRUn5ALOXQIEtPb4V+c8TxOrInZLxVQSxLlSZg9Bjia5U/8SjpYWHn0NqSiNkZvt2NKdNDCvx3krHpDVAD6nUui4qf0JCU3SbjMfaLwuDRgr2Hs5cDVa+y6EyVkODLqMjiz5k9yXEhom3H5gaSzm/tLwXHnxtPrNaQXEIvI8jgyEA9f3NPRjM2eAAbg9pbAiJjNSkStgA6Vvq1ANMQ7H3Q4D/ml7LGPGlsKq5M/C5cL8IEq8JHndTFOxuMLv9322P6z5VeAx5BD2xlbXdOivxac4iqbduVns9NEyHxi3g9y9K2ssC7f7p6JxyBXxuN4b0HPwJdGC3+1WcA+XdIxeeudeg3K+QcHyUc5obq6pb7iasgD5x3DDSSe4pKdwIUUbYUotptvxwYYzVKY/E9g2Kid2KyGbO3WTitLdk4fLQ6BF1dqkGNcDSJb3s5/W40lcq7KODQvmBQy7iUMTZnLk2FogZtyXbf8c+V2joF3EDX+lW0N3OBLf/Q2p3jKNzl+F9xJhcFa5t1ZORJRLG5Ap+zm12qh/lpkoFegGqmt3Y6yDGS9rrVpgEsb7qOmQX2VQ0=
+  - secure: rO9VFzfu7vsR+WDYuihvI3JTmPbHlHP6whcddh6R17AknJcdt7aI1fu7MOK7di2IorqKWLoPVzZ2PMIVV+7uf14uq4tETwqoKAO0ImvkwGCZduCni6FOVjg7VlE9Zi+g7ZF2jvZ9AqGAjFyrVuSv3+s40Z+WfgY0eU5OYERRtSeenxAiHF0dTKqn1qad7VMM/AsLDL3NCl/IxqfTfZkRzPKjUru4nL5HmYxLBuKmwf18qUjV4K6jqS12Pi77bXkntVJRC5ZP4h2ZiPbZ0n/MHVF3ceA/VeAPcdzCWoH/Ipo+xvq77l3WtpwoNyCBS+PxhL9PtTqKgYFMPpDAGJy5BdXGio3Mj0xwJpbZRGbFknFkXcmLnYRLZY5rNHpgExn3UPqAyLSGMGI/zlz+82RMaotwUmvix3Oy6SQ4wjmHwMnl3ZjXlACcdF/PURF1Nl52Ur4ZgKrzUxXB1QMxfDczb1DcTd7LfQV+e8p/zJ89882Ptt0rn1XMFSeWO+BJpYUtrnadD9ZIj2q89SVDiy3+Vy61T0IWuGAx0kmA9FSTkW0j6BnTgC4m8qV4LH2q6he0m/E7FlNVlkJu8h59twf40LVKwgz+vO/sACze6g1eTmBsIAZphUhlxKXxveMYCqCjatRnOMQ7VsAudhBaOyepXSazmS8GD6Qi5SNjWyAo9GQ=
   - FFIDest=$TRAVIS_BUILD_DIR/app/api/ffi
   - PROJECT_NAME=safe_launcher
 
@@ -37,6 +37,7 @@ before_install:
   - export PROJECT_VERSION=$(git log -1 | grep -i "version change to" | sed "s/.*[vV]ersion change to v\{0,1\}//")
   - export PACKAGE_NAME="$PROJECT_NAME-v$PROJECT_VERSION-$PLATFORM_NAME-x64"
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install libnotify4; sudo apt-get install libgconf-2-4; fi
+
 install:
   - export DISPLAY=':99.0'
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
